@@ -7,8 +7,6 @@ using System.Windows.Media.Imaging;
 
 namespace WpfTreeView
 {
-
-    
     public class HeaderToImageConverter : IValueConverter
     {
         public static HeaderToImageConverter Instance = new HeaderToImageConverter();
@@ -24,7 +22,7 @@ namespace WpfTreeView
                 return null;
 
             // Get the name of the file/folder
-            var name = MainWindow.GetFileFolderName(path);
+            var name = DirectoryStructure.GetFileFolderName(path);
 
             
 

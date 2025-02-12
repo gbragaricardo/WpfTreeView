@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfTreeView"
         mc:Ignorable="d"
-        Loaded="Window_Loaded"
         Title="MainWindow" Height="450" Width="800">
+
     <Grid>
-        
+
         <TreeView x:Name="FolderView">
             <TreeView.Resources>
                 <Style TargetType="{x:Type TreeViewItem}">
@@ -18,29 +18,30 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <Image Width="20"  Margin="3"  
-                                           Source=
-                                           "{Binding 
-                                            RelativeSource={RelativeSource 
-                                            Mode=FindAncestor, 
-                                            AncestorType={x:Type TreeViewItem}},
-                                            Path=Tag,
-                                            Converter={x:Static local:HeaderToImageConverter.Instance}}"/>
-                                    
+                                       Source=
+                                       "{Binding 
+                                        RelativeSource={RelativeSource 
+                                        Mode=FindAncestor, 
+                                        AncestorType={x:Type TreeViewItem}},
+                                        Path=Tag,
+                                        Converter={x:Static local:HeaderToImageConverter.Instance}}"/>
+
                                     <TextBlock Text="{Binding}"
-                                               VerticalAlignment="Center"/>
+                                           VerticalAlignment="Center"/>
                                 </StackPanel>
                             </DataTemplate>
                         </Setter.Value>
                     </Setter>
-                    
+
                 </Style>
-                
-                
+
+
             </TreeView.Resources>
-            
-            
+
+
         </TreeView>
-        
-        
+
+
     </Grid>
+
 </Window>
