@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using WpfTreeView.Directory.ViewModel;
 
 namespace WpfTreeView
 {
@@ -69,10 +70,15 @@ namespace WpfTreeView
         /// The command to expand this item
         /// </summary>
         public ICommand ExpandCommand { get; set; }
+        #endregion
 
-
-
-        #region
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public DirectoryItemViewModel()
+        {
+            this.ExpandCommand = new RelayCommand(Expand);
+        }
 
 
         #region HelperMethods
