@@ -75,9 +75,19 @@ namespace WpfTreeView
         /// <summary>
         /// Default constructor
         /// </summary>
-        public DirectoryItemViewModel()
+        public DirectoryItemViewModel(string fullPath, DirectoryItemType type)
         {
+            //Create commands
             this.ExpandCommand = new RelayCommand(Expand);
+
+            //Set Path and type
+
+            this.FullPath = fullPath;
+            this.Type = type;
+
+            //Setup the children as needed
+            this.ClearChildren();
+
         }
 
 
@@ -102,7 +112,11 @@ namespace WpfTreeView
         /// </summary>
         private void Expand()
         {
-
+            if (this.Type == DirectoryItemType.File)
+                return;
+            //Find all children
+            this.Children = new ObservableCollection<DirectoryItemViewModel>(DirectoryStructure.GetDirectoryContents(this.FullPath).
+                            Select(content => new DirectoryItemViewModel(content.FullPath, content.Type)));
         }
        
 

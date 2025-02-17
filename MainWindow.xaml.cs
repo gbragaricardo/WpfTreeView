@@ -26,6 +26,8 @@ namespace WpfTreeView
         {
             InitializeComponent();
 
+            this.DataContext = new DirectoryStructureViewModel();
+
         }
 
     }

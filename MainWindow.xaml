@@ -9,7 +9,7 @@
 
     <Grid>
 
-        <TreeView x:Name="FolderView">
+        <TreeView x:Name="FolderView" ItemsSource="{Binding Items}">
             <TreeView.Resources>
                 <Style TargetType="{x:Type TreeViewItem}">
 

@@ -1,9 +1,6 @@
-﻿
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Windows.Controls;
 
 namespace WpfTreeView
 { 
@@ -18,7 +15,7 @@ namespace WpfTreeView
         /// Gets all logical drives on the computer
         /// </summary>
         /// <returns></returns>
-        public static IList<DirectoryItem> GetLogicalDrives()
+        public static List<DirectoryItem> GetLogicalDrives()
         {
            return Directory.GetLogicalDrives().Select(drive => new DirectoryItem { FullPath = drive, Type = DirectoryItemType.Drive }).ToList();
         }
