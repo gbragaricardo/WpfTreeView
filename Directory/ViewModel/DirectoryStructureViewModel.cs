@@ -7,7 +7,7 @@ namespace WpfTreeView
     /// <summary>
     /// The view model for the applications main Directory view
     /// </summary>
-    internal class DirectoryStructureViewModel : BaseViewModel
+    public class DirectoryStructureViewModel : BaseViewModel
     {
         #region Public Properties
 
@@ -23,7 +23,8 @@ namespace WpfTreeView
             var children = DirectoryStructure.GetLogicalDrives();
 
             // Create the view models from the data
-            this.Items = new ObservableCollection<DirectoryItemViewModel>(children.Select(drive => new DirectoryItemViewModel(drive.FullPath, DirectoryItemType.Drive)));
+            this.Items = new ObservableCollection<DirectoryItemViewModel>(
+                children.Select(drive => new DirectoryItemViewModel(drive.FullPath, DirectoryItemType.Drive)));
         }
         
 

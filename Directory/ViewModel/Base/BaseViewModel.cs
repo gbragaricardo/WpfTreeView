@@ -8,7 +8,7 @@ namespace WpfTreeView
     /// Base ViewModel thats fire the property changed events as needed
     /// </summary>
     [ImplementPropertyChanged]
-    internal class BaseViewModel : INotifyPropertyChanged
+    public class BaseViewModel : INotifyPropertyChanged
     {
 
         /// <summary>

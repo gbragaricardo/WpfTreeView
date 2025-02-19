@@ -12,7 +12,7 @@ namespace WpfTreeView
     /// <summary>
     /// A ViewModel for each DirectoryItem
     /// </summary>
-    internal class DirectoryItemViewModel : BaseViewModel
+    public class DirectoryItemViewModel : BaseViewModel
     {
 
         #region PublicProperties
@@ -115,8 +115,10 @@ namespace WpfTreeView
             if (this.Type == DirectoryItemType.File)
                 return;
             //Find all children
-            this.Children = new ObservableCollection<DirectoryItemViewModel>(DirectoryStructure.GetDirectoryContents(this.FullPath).
-                            Select(content => new DirectoryItemViewModel(content.FullPath, content.Type)));
+
+            var children = DirectoryStructure.GetDirectoryContents(this.FullPath);
+            this.Children = new ObservableCollection<DirectoryItemViewModel>(
+                                children.Select(content => new DirectoryItemViewModel(content.FullPath, content.Type)));
         }
        
 

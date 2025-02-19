@@ -10,35 +10,28 @@
     <Grid>
 
         <TreeView x:Name="FolderView" ItemsSource="{Binding Items}">
-            <TreeView.Resources>
+
+            <TreeView.ItemContainerStyle>
                 <Style TargetType="{x:Type TreeViewItem}">
-
-                    <Setter Property="HeaderTemplate">
-                        <Setter.Value>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Width="20"  Margin="3"  
-                                       Source=
-                                       "{Binding 
-                                        RelativeSource={RelativeSource 
-                                        Mode=FindAncestor, 
-                                        AncestorType={x:Type TreeViewItem}},
-                                        Path=Tag,
-                                        Converter={x:Static local:HeaderToImageConverter.Instance}}"/>
-
-                                    <TextBlock Text="{Binding}"
-                                           VerticalAlignment="Center"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </Setter.Value>
-                    </Setter>
-
+                    <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}"/>
                 </Style>
+            </TreeView.ItemContainerStyle>
 
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                    
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="20"  Margin="3"  
+                        Source=
+                        "{Binding Type,
+                        Converter={x:Static local:HeaderToImageConverter.Instance}}"/>
 
-            </TreeView.Resources>
-
-
+                        <TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
+                            
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+            
         </TreeView>
 
 

@@ -8,11 +8,11 @@ using System.Windows.Input;
 
 namespace WpfTreeView.Directory.ViewModel
 {
-    
+
     /// <summary>
     /// A basic command that runs an actions
     /// </summary>
-    internal class RelayCommand : ICommand
+    public class RelayCommand : ICommand
     {
 
         #region PrivateMembers

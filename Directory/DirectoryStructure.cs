@@ -17,7 +17,7 @@ namespace WpfTreeView
         /// <returns></returns>
         public static List<DirectoryItem> GetLogicalDrives()
         {
-           return Directory.GetLogicalDrives().Select(drive => new DirectoryItem { FullPath = drive, Type = DirectoryItemType.Drive }).ToList();
+           return System.IO.Directory.GetLogicalDrives().Select(drive => new DirectoryItem { FullPath = drive, Type = DirectoryItemType.Drive }).ToList();
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace WpfTreeView
             try
             {
 
-                var dirs = Directory.GetDirectories(fullPath);
+                var dirs = System.IO.Directory.GetDirectories(fullPath);
 
                 if (dirs.Length > 0)
                     items.AddRange(dirs.Select(dir => new DirectoryItem { FullPath = dir, Type = DirectoryItemType.Folder}));
@@ -51,7 +51,7 @@ namespace WpfTreeView
             try
             {
 
-                var fs = Directory.GetFiles(fullPath);
+                var fs = System.IO.Directory.GetFiles(fullPath);
 
                 if (fs.Length > 0)
                 {
